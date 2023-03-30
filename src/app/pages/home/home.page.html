@@ -1,14 +1,15 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="login"></ion-back-button>
+      <ion-back-button defaultHref="home" style="color: #172a39;"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true" class="content-basico">
   <div class="container-login">
-    <h2 class="container-user">Usuários</h2>
-
+    <h1 class="container-user"><ion-icon class="logo" name="pizza-outline" style="color: #f0a506;"></ion-icon>  CLIENTES</h1>
+    
     <div *ngIf="segmentChange == 'visualizar'">
       <ion-list>
         <ion-item>
@@ -22,6 +23,31 @@
         </ion-item>
       </ion-list>
     </div>
-
   </div>
+
+  <div class="container-login" class="container-botao">
+    <ion-input [(ngModel)]="this.cep" placeholder="digite seu cep" class="input-cep">
+    </ion-input>
+    <ion-button (click)="verificarCEP(this.cep)" class="botao-cadastrar">
+      Verificar CEP
+    </ion-button>
+  </div>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="eye-outline">
+        <ion-icon name="eye-outline"></ion-icon>
+        Visualizar
+      </ion-tab-button>
+      <ion-tab-button tab="create-outline">
+        <ion-icon name="create-outline"></ion-icon>
+        Editar
+      </ion-tab-button>
+      <ion-tab-button tab="trash-bin-outline">
+        <ion-icon name="trash-bin-outline"></ion-icon>
+        Excluir
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  
 </ion-content>

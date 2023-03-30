@@ -1,5 +1,23 @@
 .container-user {
   margin-left: 1rem;
+  color: #172a39;
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+ion-label{
+  color: #f0a506;
+}
+
+.icones{
+  margin-top: 275px;
+  background-color: #172a39;
+}
+
+ion-icon{
+  color: #f0a506;
 }
 
 .div-info {
@@ -19,10 +37,30 @@
 
 .segment {
   --background: #ffffff;
-
 }
 
 .segment-button:active {
-  background-color: #002fff;
+  background-color: #172a39;
 }
 
+.botao-cadastrar{
+  width: 55%;
+  margin: auto;
+  margin-top: 8%;
+  color: #f0a506;
+	--background:	#172a39;
+  --border-radius: 10px;
+  text-transform: initial;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4%;
+  margin: 10px;
+  margin-top: 2px;
+}
+
+.input-cep{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  color: #f0a506;
+}

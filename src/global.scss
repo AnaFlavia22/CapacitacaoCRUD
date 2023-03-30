@@ -26,10 +26,12 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 .content-basico {
-  --background: linear-gradient(180deg, #a0a0a0 40.61%, rgba(173, 173, 173, 0.692) 116.69%);;
+  --background: #fafafa;
+  height: 100%;
   --background-size: cover;
   z-index: 5;
   position: sticky;
+  font-family: 'Poppins', sans-serif;
 }
 
 .texto_tolbar {

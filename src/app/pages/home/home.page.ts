@@ -6,6 +6,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AlertController, ToastController } from '@ionic/angular';
 import { alertController } from '@ionic/core';
+import { BuscaCEPService } from 'src/app/services/busca-cep.service';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +16,15 @@ import { alertController } from '@ionic/core';
 export class HomePage {
   userVetor: User[] = [];
   segmentChange: String = 'visualizar';
+  cep: string = '';
 
   constructor(
     private fireStore: AngularFirestore,
     private alertCtrl: AlertController,
     private auth: AngularFireAuth,
     private firebaseService: FirebaseService,
-    private toast: ToastService
+    private toast: ToastService,
+    private buscaCEP: BuscaCEPService
   ) {
     this.getUserData();
   }
@@ -43,6 +46,12 @@ export class HomePage {
       this.userVetor = data as User[];
       console.log(this.userVetor);
     });
+  }
+
+  async verificarCEP(cep:string){
+    console.log(cep);
+    const enderecoColocado = await this.buscaCEP.consultaCEP(cep);
+    console.log(enderecoColocado);
   }
 
 }
