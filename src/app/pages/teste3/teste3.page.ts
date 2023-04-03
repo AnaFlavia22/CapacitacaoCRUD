@@ -1,19 +1,21 @@
-import { ToastService } from './../../services/toast.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { User } from 'src/app/interfaces/user';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AlertController, ToastController } from '@ionic/angular';
 import { alertController } from '@ionic/core';
 import { BuscaCEPService } from 'src/app/services/busca-cep.service';
+import { async } from 'rxjs';
+import { ToastService } from './../../services/toast.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-teste3',
+  templateUrl: './teste3.page.html',
+  styleUrls: ['./teste3.page.scss'],
 })
-export class HomePage {
+export class Teste3Page implements OnInit {
+
   userVetor: User[] = [];
   segmentChange: String = 'visualizar';
   cep: string = '';
@@ -24,9 +26,12 @@ export class HomePage {
     private auth: AngularFireAuth,
     private firebaseService: FirebaseService,
     private toast: ToastService,
-    private buscaCEP: BuscaCEPService
+    private buscaCEP: BuscaCEPService,
   ) {
     this.getUserData();
+  }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
   private async getUserData(): Promise<void> {
@@ -48,10 +53,29 @@ export class HomePage {
     });
   }
 
-  async verificarCEP(cep:string){
-    console.log(cep);
-    const enderecoColocado = await this.buscaCEP.consultaCEP(cep);
-    console.log(enderecoColocado);
+  async alertExcluirInfo(i: number){
+    const alert = await alertController.create({
+      header: 'Excluir usuario',
+      message: 'Deseja excluir o usuario $(this.userVetor[i].',
+      buttons:[
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'danger',
+          handler: () => {
+            console.log('Confirm cancel');
+          },
+        },
+        {
+          text: 'Ok',
+          handler: () => {
+            this.fireStore.collection('users').doc(this.userVetor[i].uid).delete();
+            //this.deletarEmail(this.userVetor[i].uid);
+          },
+        },
+      ],
+    });
+    await alert.present();
   }
 
 }

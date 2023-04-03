@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" style="color: #172a39;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-basico">
+  <div class="container-login">
+    <h1 class="container-user"><ion-icon class="logo" name="pizza-outline" style="color: #f0a506;"></ion-icon>  CLIENTES</h1>
+
+    <div *ngIf="segmentChange == 'excluir'">
+      <ion-list>
+        <ion-item>
+          <ion-label><b>Nome</b></ion-label>
+          <ion-label><b>CPF</b></ion-label>
+        </ion-item>
+        <ion-item
+          *ngFor="let user of userVetor; let i=index" (click)="alertExcluirInfo(i)">
+          <ion-label>{{user.nome}}</ion-label>
+          <ion-label>{{user.cpf}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+</ion-content>

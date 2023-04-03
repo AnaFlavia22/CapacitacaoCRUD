@@ -10,7 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 //firebase
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 //CEP
 import { NgxViacepModule } from "@brunoc/ngx-viacep";
 import { HttpClientModule } from '@angular/common/http';
@@ -22,8 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     NgxViacepModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFirestoreModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

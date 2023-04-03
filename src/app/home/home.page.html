@@ -1,0 +1,80 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" style="color: #172a39;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-basico">
+  <div class="container-login">
+    <h1 class="container-user"><ion-icon class="logo" name="pizza-outline" style="color: #f0a506;"></ion-icon>  CLIENTES</h1>
+
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="visualizar">
+          <ion-label name="eye-outline">Visualizar</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="editar">
+          <ion-label name="create-outline">Editar</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="excluir">
+          <ion-label name="trash-bin-outline">Excluir</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+
+    <!--<div *ngIf="segmentChange == 'visualizar'">
+      <ion-list>
+        <ion-item>
+          <ion-label><b>Nome</b></ion-label>
+          <ion-label><b>CPF</b></ion-label>
+        </ion-item>
+        <ion-item
+          *ngFor="let user of userVetor; let i=index" (click)="alertVisualizarInfo(i)">
+          <ion-label>{{user.nome}}</ion-label>
+          <ion-label>{{user.cpf}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="segmentChange == 'editar'">
+      <ion-list>
+        <ion-item>
+          <ion-label><b>Nome</b></ion-label>
+          <ion-label><b>CPF</b></ion-label>
+        </ion-item>
+        <ion-item
+          *ngFor="let user of userVetor; let i=index" (click)="alertEditarInfo(i)">
+          <ion-label>{{user.nome}}</ion-label>
+          <ion-label>{{user.cpf}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="segmentChange == 'excluir'">
+      <ion-list>
+        <ion-item>
+          <ion-label><b>Nome</b></ion-label>
+          <ion-label><b>CPF</b></ion-label>
+        </ion-item>
+        <ion-item
+          *ngFor="let user of userVetor; let i=index" (click)="alertExcluirInfo(i)">
+          <ion-label>{{user.nome}}</ion-label>
+          <ion-label>{{user.cpf}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>-->
+  </div>
+
+  <!--<div class="container-login" class="container-botao">
+    <ion-input [(ngModel)]="this.cep" placeholder="digite seu cep" class="input-cep">
+    </ion-input>
+    <ion-button (click)="verificarCEP(this.cep)" class="botao-cadastrar">
+      Verificar CEP
+    </ion-button>
+  </div>-->
+
+  
+  
+</ion-content>
