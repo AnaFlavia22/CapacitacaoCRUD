@@ -63,14 +63,13 @@ export class ExcluirPage implements OnInit {
           role: 'cancel',
           cssClass: 'danger',
           handler: () => {
-            console.log('Confirm cancel');
+            console.log('Cancelamento confirmado');
           },
         },
         {
           text: 'Ok',
           handler: () => {
             this.fireStore.collection('users').doc(this.userVetor[i].uid).delete();
-            //this.deletarEmail(this.userVetor[i].uid);
           },
         },
       ],

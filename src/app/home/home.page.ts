@@ -1,4 +1,3 @@
-//import { ToastService } from './../../services/toast.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { User } from 'src/app/interfaces/user';
 import { Component } from '@angular/core';
@@ -49,75 +48,5 @@ export class HomePage {
       console.log(this.userVetor);
     });
   }
-
-  async alertVisualizarInfo(i: number){
-    console.log(this.userVetor[i].nome);
-  }
-
-  async alertEditarInfo(i: number){
-    console.log(this.userVetor[i].nome);
-    const alert = await alertController.create({
-      header: this.userVetor[i].nome,
-      subHeader: "Informações",
-      inputs:[
-        {
-          name: 'nome',
-          type: 'text',
-          placeholder: 'Nome',
-          value: this.userVetor[i].nome,
-        },
-        {
-          name: 'cpf',
-          type: 'text',
-          placeholder: 'CPF',
-          value: this.userVetor[i].cpf,
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          cssClass: 'danger',
-          handler: () => {
-            console.log('Confirm cancel');
-          },
-        },
-        {
-          text: 'Ok',
-        },
-      ],
-  })};
-
-  async alertExcluirInfo(i: number){
-    const alert = await alertController.create({
-      header: 'Excluir usuario',
-      message: 'Deseja excluir o usuario $(this.userVetor[i].',
-      buttons:[
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          cssClass: 'danger',
-          handler: () => {
-            console.log('Confirm cancel');
-          },
-        },
-        {
-          text: 'Ok',
-          handler: () => {
-            this.fireStore.collection('users').doc(this.userVetor[i].uid).delete();
-            //this.deletarEmail(this.userVetor[i].uid);
-          },
-        },
-      ],
-    });
-    await alert.present();
-  }
-
-  async verificarCEP(cep:string){
-    console.log(cep);
-    const enderecoColocado = await this.buscaCEP.consultaCEP(cep);
-    console.log(enderecoColocado);
-  }
-
 
 }

@@ -77,7 +77,7 @@ export class EditarPage implements OnInit {
           role: 'cancel',
           cssClass: 'danger',
           handler: () => {
-            console.log('Confirm cancel');
+            console.log('Cancelamento confirmado');
           },
         },
         {

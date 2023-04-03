@@ -15,9 +15,9 @@ import { ToastService } from 'src/app/services/toast.service';
   styleUrls: ['./visualizar.page.scss'],
 })
 export class VisualizarPage implements OnInit {
-  
   userVetor: User[] = [];
   segmentChange: String = 'visualizar';
+  cep: string = '';
   
   constructor(private router:Router,
     private fireStore: AngularFirestore,
@@ -116,7 +116,12 @@ export class VisualizarPage implements OnInit {
     })
     await alert.present();
   }
-  
+
+  async verificarCEP(cep:string){
+    console.log(cep);
+    const enderecoColocado = await this.buscaCEP.consultaCEP(cep);
+    console.log(enderecoColocado);
+  }
   ngOnInit() {
   }
 

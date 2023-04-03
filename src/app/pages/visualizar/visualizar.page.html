@@ -30,4 +30,12 @@
     </ion-list>
   </div>
 
+  <div class="container-login" class="container-botao">
+    <ion-input [(ngModel)]="this.cep" placeholder="digite seu cep" class="input-cep">
+    </ion-input>
+    <ion-button (click)="verificarCEP(this.cep)" class="botao-cadastrar">
+      Verificar CEP
+    </ion-button>
+  </div>
+  
 </ion-content>
